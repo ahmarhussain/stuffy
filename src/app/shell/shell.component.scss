@@ -1,0 +1,14 @@
+.shell-wrapper {
+    display: flex;
+    background-color: whitesmoke;
+}
+
+app-sidepanel {
+    width: 200px;
+    height: 100vh;
+}
+
+.content-wrapper {
+    height: 100vh;
+    flex-grow: 1;
+}

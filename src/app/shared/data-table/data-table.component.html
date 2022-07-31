@@ -1,0 +1,154 @@
+<table class="data-table" border="0" cellspacing="0" cellpadding="0">
+    <thead> 
+        <th width="18%">Contact <span class="filter"></span></th>
+        <th width="10%">Progress <span class="filter"></span></th>
+        <th width="6%">Skills <span class="filter"></span></th>
+        <th width="6%">Certificates <span class="filter"></span></th>
+        <th width="7%">Supervision<br>Chances <span class="filter"></span></th>
+        <th width="6%">Refere <span class="filter"></span></th>
+        <th width="6%">Police<br>Check/Certn <span class="filter"></span></th>
+        <th width="6%">Resume <span class="filter"></span></th>
+        <th width="6%">Note <span class="filter"></span></th>
+        <th width="6%">Date<br>Joined <span class="filter"></span></th>
+        <th width="6%">Last<br> Activity <span class="filter"></span></th>
+        <th width="6%">Quiz<br>Taken <span class="filter"></span></th>
+        <th width="6%">Max<br>Score <span class="filter"></span></th>
+        <th width="6%"></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of tableData">
+            <td>
+                <div class="contact">
+                    <img [src]="data.image" alt="">
+                    <div class="details">
+                        <h2><span class="dot" [ngClass]="{'active': data.isActive}"></span>{{ data.name }}</h2>
+                        <ul>
+                            <li><i class="fa fa-envelope"></i></li>
+                            <li><i class="fa fa-map"></i></li>
+                            <li><i class="fa fa-phone"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <ul class="progress-list">
+                    <li *ngFor="let list of data.progress">
+                        {{ list.key }} <span class="dot" [ngClass]="{'active': list.value}"></span>
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <i class="fa fa-eye show-icon active"></i>
+            </td>
+            <td>
+                <i class="fa fa-eye show-icon active"></i>
+            </td>
+            <td>
+                {{ data.supervisionChances }}
+            </td>
+            <td>
+                <ng-container *ngIf="data.refere; else refere">
+                    <i class="fa fa-pencil-square-o show-icon active"></i>
+                </ng-container>
+                <ng-template #refere>
+                    <i class="fa fa-plus-circle show-icon active"></i>
+                </ng-template>
+            </td>
+            <td>
+                <div class="dot" [ngClass]="{'active': data.policeCheck}"></div>
+            </td>
+            <td>
+                <div class="dot" [ngClass]="{'active': data.resume}"></div>
+            </td>
+            <td>
+                <ng-container *ngIf="!!data.note; else addNote">
+                    <i class="fa fa-pencil-square-o show-icon active"></i>
+                </ng-container>
+                <ng-template #addNote>
+                    <i class="fa fa-plus-circle show-icon active"></i>
+                </ng-template>
+            </td>
+            <td>
+                <span class="datetime">{{ data.dateJoined }}</span>
+            </td>
+            <td>
+                <span class="datetime">
+                    {{ data.lastActivity }}
+                </span>
+            </td>
+            <td>
+                {{ data.quizTaken }}
+            </td>
+            <td>
+                {{ data.maxScore }}
+            </td>
+            <td>
+                <i class="fa fa-ellipsis-v show-icon active"></i>
+            </td>
+        </tr>
+
+
+
+        <!-- <tr>
+            <td>
+                <div class="contact">
+                    <img src="https://via.placeholder.com/50x50" alt="">
+                    <div class="details">
+                        <h2><span class="dot"></span>Mohsin Ayoob</h2>
+                        <ul>
+                            <li><i class="fa fa-envelope"></i></li>
+                            <li><i class="fa fa-map"></i></li>
+                            <li><i class="fa fa-phone"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <ul class="progress-list">
+                    <li>Attestation <span class="dot active"></span></li>
+                    <li>Covax Training <span class="dot"></span></li>
+                    <li>Covax Account <span class="dot active"></span></li>
+                    <li>Epic Training <span class="dot"></span></li>
+                </ul>
+            </td>
+            <td>
+                <i class="fa fa-eye show-icon"></i>
+            </td>
+            <td>
+                <i class="fa fa-eye show-icon"></i>
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                <i class="fa fa-pencil-square-o show-icon"></i>
+            </td>
+            <td>
+                <div class="dot"></div>
+            </td>
+            <td>
+                <div class="dot"></div>
+            </td>
+            <td>
+                <i class="fa fa-plus-circle show-icon active"></i>
+            </td>
+            <td>
+                <span class="datetime">24th Dec 2020</span>
+            </td>
+            <td>
+                <span class="datetime">
+                    24th Dec 2020, 20:20
+                </span>
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                90%
+            </td>
+            <td>
+                <i class="fa fa-ellipsis-v show-icon active"></i>
+            </td>
+        </tr> -->
+    </tbody>
+</table>
